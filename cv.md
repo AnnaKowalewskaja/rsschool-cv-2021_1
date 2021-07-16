@@ -21,18 +21,93 @@
 
 ## __Code examples__
 ```javascript
-function removeDuplicates(array) {
-        return array.filter((item, index) => array.indexOf(item) === index);
-        }
+class BookList {
+			
+constructor(allBooks) {
+      this.allBooks = allBooks;
+      this.currentBook = null;
+      this.previousBook = null;
+      this.nextBook = allBooks[1];
+      this.readBook(allBooks[0]);
+      this.readBooksCount = 0;
+      this.booksReadInPast = [];
 
-function clearArray(array) {
-        return array.filter(item => item);
-        }
-
-function isEvenValue(obj) {
-       const keys = Object.keys(obj);
-       return keys.some(key => obj[key] % 2 === 0);
      }
+   
+  finishCurrentBook(){
+     this.currentBook.readDate = new Date();
+     this.currentBook.readNow = false;
+     
+     this.booksReadInPast.push(this.currentBook);
+     
+     //shift - delete first element
+     this.previousBook = this.currentBook;
+     this.readBooksCount += 1;
+     
+     this.allBooks.shift();
+     
+     if(!this.allBooks.length){
+       return;
+      }
+     
+     this.readBook(this.allBooks[0]);
+     this.nextBook = this.allBooks[1];
+     }
+   
+  readBook(book){
+     this.currentBook = book;
+     this.currentBook.readNow = true;
+     }
+   
+  addBook(newBook) {
+      this.allBooks.push(newBook);
+      }
+
+  getReadBooksCount(){
+      return this.readBooksCount;
+      }
+    
+  getUnreadBooksCount(){
+      return this.allBooks.length ;
+      }
+    
+  } 
+
+
+class Book {
+  constructor(title, style, author, readNow = false, readDate = null) {
+    this.title = title;
+    this.style = style;
+    this.author = author;
+    this.readNow = readNow;
+    this.readDate = readDate;
+  }
+}
+
+const books = [
+    new Book('Преступление и наказание', 'Проза', 'Фёдор Достоевский'),
+    new Book('1984', 'Проза, Фантастика', 'Джордж Оруэлл'),
+    new Book('Властелин колец', 'Фэнтези', 'Джон Рональд Руэл Толкин'),
+    new Book('Война и мир', 'Роман-Эпопея', 'Лев Николаевич Толстой'),
+    new Book('Алиса в Стране чудес', 'Сказка', 'Льюис Кэрролл')
+];
+
+const bookList = new BookList(books);
+
+bookList.addBook(new Book('Скотный двор', 'Притча, сатира, антиутопия', 'Джордж Оруэлл'));
+   
+console.log("Past, present, future:");
+console.log(bookList.previousBook);
+console.log(bookList.currentBook);
+console.log(bookList.nextBook);
+
+console.log("All read and unread books:");
+bookList.finishCurrentBook();
+console.log(bookList.booksReadInPast);
+console.log(bookList);
+
+console.log(`Count of read books: ${bookList.getReadBooksCount()}`);
+console.log(`Count of unread books: ${bookList.getUnreadBooksCount()}`)
 
 ```
 
