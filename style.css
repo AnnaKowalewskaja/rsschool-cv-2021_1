@@ -1,0 +1,136 @@
+*{
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+  
+}
+
+body{
+    margin: 0;
+}
+
+:root {
+    --main-color: #74b3dd;
+    --first:#5d9ec9 ;
+    --second: #6fadd6;
+    --gray: #86878b;
+    --light-gray: #bcbdc4;
+    --white: rgb(255, 255, 255);
+  }
+  
+
+
+h1, 
+h2,
+h3,
+p,
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+p{
+    font-size: 1.5rem;
+}
+
+.container{
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
+
+.location{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.highlight{
+    color: var(--second);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.hover:hover{
+    cursor: pointer;
+    transition: all 350ms ease;
+}
+
+
+.people__name{
+    font-family: 'Zen Tokyo Zoo', cursive;
+    letter-spacing: .6rem;
+    font-size: 6rem;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.people__adress{
+    font-size: 1.5rem;
+}
+.item__header{
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: var(--first);
+    font-size: 2.5rem;
+    letter-spacing: .2rem;
+}
+
+.item{
+    margin-bottom: 1.5rem;
+}
+
+.item__list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__header{
+    margin-bottom: 1.1rem;
+}
+
+
+.list{
+   
+    list-style-type:none;
+    font-size: 1.3rem;
+    width: 100%;
+
+}
+
+.list__li{
+    min-width: 20%;
+    text-align: center;
+}
+
+.list__li:hover{
+    transform: scale(1.2);
+   transition: all 350ms ease;
+    
+}
+
+.list__li:not(:hover){
+   transition: all 350ms ease;
+}
+
+.list__link{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--gray);
+}
+
+.list__link:hover{
+    color: var(--second);
+}
+
+.list__li:focus{
+    color: var(--second);
+}   
+
+
+.item__text{
+    margin-bottom: 1rem;
+}
