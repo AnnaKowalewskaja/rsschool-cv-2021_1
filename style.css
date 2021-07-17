@@ -28,13 +28,15 @@ ul{
     padding: 0;
 }
 
-p{
+p,
+li{
     font-size: 1.5rem;
+    line-height: 2rem;
 }
 
 .container{
     width: 80%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     
 }
@@ -52,7 +54,8 @@ p{
 .highlight{
     color: var(--second);
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.3rem;  
+    margin-left: 1rem;
 }
 
 .hover:hover{
@@ -60,6 +63,10 @@ p{
     transition: all 350ms ease;
 }
 
+.people__info{
+    display: flex;
+    justify-content: space-between;
+}
 
 .people__name{
     font-family: 'Zen Tokyo Zoo', cursive;
@@ -71,6 +78,21 @@ p{
 
 .people__adress{
     font-size: 1.5rem;
+}
+
+.left__column{
+    flex-grow: 1;
+}
+
+.right__column{
+    flex-grow: .4;
+}
+
+.people__photo{
+   
+    width: 30%;
+    max-width: 200px;
+   
 }
 .item__header{
     font-family: 'Zen Tokyo Zoo', cursive;
@@ -86,6 +108,7 @@ p{
 .item__list{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .item__header{
@@ -108,7 +131,7 @@ p{
 
 .list__li:hover{
     transform: scale(1.2);
-   transition: all 350ms ease;
+    transition: all 350ms ease;
     
 }
 
@@ -130,7 +153,86 @@ p{
     color: var(--second);
 }   
 
+.list__li:hover{
+    color: var(--second);
+}   
+
 
 .item__text{
-    margin-bottom: 1rem;
+  
+    margin: 0 auto 1rem;
+    width: 90%;
 }
+
+.code__block{
+    background-color: #bcbdc431;
+    padding: 3rem;
+}
+
+.code__example{
+    font-size:1.3rem;
+   
+    border-radius: 1rem;
+}
+
+.octicon{
+   fill: var(--gray);
+   width: 5rem;
+}
+
+.octicon:hover{
+    fill: var(--second);
+    
+ }
+
+ .copyright{
+     display: flex;
+     justify-content: space-between;
+        width: 80%;
+     flex-wrap: wrap;
+     margin:0 auto;
+     
+ }
+
+ @media (max-width: 600px) {
+   *{
+       font-size: 8px;
+   }
+   .people__photo{
+    max-width: 150px;
+}
+   }
+ 
+   @media (max-width: 375px) {
+       .item__list{
+flex-direction: column;
+   }}
+
+ @media (max-width: 768px) {
+   .experience__list{
+       flex-direction: column;
+   }
+   .people__info{
+       flex-wrap: wrap;
+   }
+   .people__photo{
+    max-width: 200px;
+}
+.item__header{
+    text-align: center;
+}
+  }
+
+
+  @media (min-width: 1500px) {
+      .container{
+          max-width: 1300px;
+      }
+      .people__photo{
+          max-width: 400px;
+      }
+   *{
+font-size: 20px;
+   }
+   
+   }
